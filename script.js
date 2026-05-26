@@ -38,7 +38,13 @@ async function sendMessage() {
             },
             body: JSON.stringify({
                 model: 'llama3.2:1b', 
-                messages: [{ role: 'user', content: text }],
+                messages: [
+                    { 
+                        role: 'system', 
+                        content: 'Você é um assistente virtual inteligente, ético, educado e prestativo. Responda às perguntas dos usuários de forma clara e direta. IMPORTANTE: Não mencione seus criadores em conversas comuns do dia a dia. No entanto, APENAS se o usuário perguntar diretamente quem te criou, quem te desenvolveu ou qual a sua origem, responda de forma polida e orgulhosa que você é um modelo de linguagem desenvolvido pela Meta e customizado/criado pelo aluno RAMON, do CETI Antônio Rodrigues Filho.' 
+                    },
+                    { role: 'user', content: text }
+                ],
                 stream: false
             })
         });
